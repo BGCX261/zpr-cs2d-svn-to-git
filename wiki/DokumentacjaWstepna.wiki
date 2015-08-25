@@ -1,0 +1,42 @@
+#summary One-sentence summary of this page.
+
+= Dokumentacja wstępna Bot-Strike =
+
+== 1. Cel projektu ==
+Celem projektu jest stworzenie środowiska do symulacji rozgrywki wzorowanego na grze Counter-Strike 2D, korzystającego z botów dostarczanych w postaci bibliotek DLL. W skład projektu wchodzi również stworzenie dwóch demonstracyjnych botów.
+
+== 2. Wymagania funkcjonalne ==
+Określenia napisane _kursywą_ należą do dziedziny problemu i zostały wytłumaczone na końcu dokumentu.
+  # Aplikacja powinna pozwalać na wybór _mapy_ oraz _botów_ uczestniczących w _rozgrywce_.
+  # Aplikacja powinna pozwalać na ustalenie _czasu rozgrywki_.
+  # Każdy _bot_ może poruszać się po mapie w dwóch osiach, obracać się oraz strzelać, a środowisko powinno nakładać ograniczenia na szybkość wykonywania tych _akcji_.
+  # Każdy _bot_ powinien mieć liczbę _punktów życia_ w skali od 0 do 100.
+  # Każdy _bot_ powinien mieć nieskończoną liczbę _żyć_.
+  # Trafienie _bota_ pociskiem powinno powodować ubytek jego _punktów życia_ o wartość zależną od parametrów _broni_ i pocisku.
+  # Jeśli liczba punktów życia spadnie do 0 bot powinien zginąć i po ustalonym _czasie odrodzenia_ rozpocząć nowe życie w jednym z kilku _punktów startowych_ rozmieszczonych na _mapie_.
+  # Każdy bot powinien wybrać jedną z kilku dostępnych _broni_ na początku każdego _życia_ i używać jej do końca _życia_ lub do końca _rozgrywki_.
+  # Po upłynięciu _czasu rozgrywki_ _użytkownik_ powinien zostać poinformowany o wynikach _rozgrywki_ w postaci _tabeli punktów_ wyświetlanej na ekranie.
+  # Zwycięzcą _rozgrywki_ jest _bot_, który uzyska największą liczbę _punktów_.
+  # _Bot_, który zabije innego _bota_ powinien dostać 1 _punkt_.
+  # Każdy _bot_ powinien mieć określony zestaw parametrów, wpływający na sposób, w jaki jest traktowany przez środowisko np. jeden z botów może mieć lepszy refleks, a inny celniej strzela.
+  # Każdy z botów powinien być informowany przez środowisko o jego _otoczeniu_ w celu podejmowania decyzji. _Bot_ powinien otrzymywać tylko takie informacje, jakie jest w stanie zauważyć, a jego wzrok jest ograniczony przez wycinek koła o określonym kącie rozwarcia oraz promieniu.
+  
+== 3. Wymagania pozafunkcjonalne ==
+  # Aplikacja powinna działać w systemie Microsoft Windows 7.
+  # Boty powinny być dostarczone w postaci plików typu Dynamic-link Library eksportujących ustalone w kolejnym etapie funkcje.
+  # Interfejs komunikacji między _botem_ a aplikacją powinien być przystępny i ułatwiać tworzenie _botów_.
+
+== 4. Słownik dziedziny problemu ==
+  * mapa - świat w którym poruszają się _boty_, mapa ma kształt prostokątny, a rozmiar może być inny dla każdej z map, na mapie znajdują się przeszkody w kształcie prostokąta lub okręgu, wizualnie mapa jest przedstawiona jako tło gry w postaci bitmapy, a każda przeszkoda również przedstawiana jest w postaci bitmapy.
+  * bot - uczestnik _rozgrywki_ wykonujący _akcje_ wpływające na inne _boty_.
+  * rozgrywka - symulacja zachowania wybranych _botów_ na wybranej _mapie_.
+  * akcja - podstawowa czynność, którą może wykonać _bot_ np. ruch w określonym kierunku, spoglądanie w określonym kierunku.
+  * punkty życia - wskaźnik odniesionych przez _bota_ obrażeń, na początku _życia_ wynosi on 100, a w momencie gdy spadnie do 0 _bot_ ginie.
+  * życie - okres, w którym _bot_ uczestniczy w _rozgrywce_, po śmierci _bot_ otrzymuje nowe _życie_.
+  * broń - _bot_ będzie miał do wyboru jedną z kilku broni, bronie różnią się pod względem parametrów, a używana broń ma wpływ na efekt podejmowanych przez _bota_ _akcji_ (czyli inaczej strzela).
+  * punkty - punkty są zdobywane przez _boty_ poprzez zabijanie innych _botów_.
+  * otoczenie bota - zbiór _botów_, które mogą zostać zauważone przez _bota_.
+
+|| *Wersja* || *Autor* || *Data* ||
+|| 1.0 || Dominik Olędzki || 28.11.2011 ||
+|| || Kamil Jaworski ||
